@@ -16,7 +16,7 @@ namespace Окна
             {
                 if (File.Exists(fileName))
                 {
-                    fileInfo = new FileInfo(fileName);
+                    fileInfo = new FileInfo("чек.dotx");
                 }
                 else
                 {
