@@ -8,6 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
+
 namespace Окна
 {
     public partial class Form1 : Form
@@ -114,6 +115,11 @@ namespace Окна
         private void button2_Click(object sender, EventArgs e)
         {
             SelectImage();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }
