@@ -7,7 +7,8 @@ using System.Threading.Tasks;
 namespace Окна
 {
     internal class Price
-    {   // Цена за 1кв метр
+    {   
+        // Цена за 1кв метр
         public static double deaf = 1000.00;
         public static double rotary = 3400.50;
         public static double folding = 2560.00;
