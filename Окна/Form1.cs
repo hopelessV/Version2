@@ -134,7 +134,7 @@ namespace Окна
           for (int i = 0; i < 5; i++)
               randId += rand.Next(10).ToString();
 
-          var helper = new WordHelper("report.docx");
+          var helper = new WordHelper("чек.dotx");
           var items = new Dictionary<string, string>
           {
               { "{Уникальный_номер}", randId },
