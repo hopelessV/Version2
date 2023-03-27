@@ -13,6 +13,8 @@ namespace Окна
 {
     public partial class Form1 : Form
     {
+        double sale;
+        string product;
         public Form1()
         {
             InitializeComponent();
@@ -36,33 +38,38 @@ namespace Окна
                 {
                     if (radioButton1.Checked)
                     {
-                        double sale = Price.deaf * m2;
+                        sale = Price.deaf * m2;
                         pictureBox1.Image = Image.FromFile(@"C:\Users\hopless\Desktop\Окна\Окна\bin\Debug\image\1.jpg");
                         label5.Text = sale.ToString();
+                        product = radioButton1.Text;
                     }
                     else if (radioButton2.Checked)
                     {
-                        double sale = Price.rotary * m2;
+                        sale = Price.rotary * m2;
                         pictureBox1.Image = Image.FromFile(@"C:\Users\hopless\Desktop\Окна\Окна\bin\Debug\image\2.jpg");
                         label5.Text = sale.ToString();
+                        product = radioButton2.Text;
                     }
                     else if (radioButton3.Checked)
                     {
-                        double sale = Price.folding * m2;
+                        sale = Price.folding * m2;
                         pictureBox1.Image = Image.FromFile(@"C:\Users\hopless\Desktop\Окна\Окна\bin\Debug\image\3.jpg");
                         label5.Text = sale.ToString();
+                        product = radioButton3.Text;
                     }
                     else if (radioButton4.Checked)
                     {
-                        double sale = Price.transom * m2;
+                        sale = Price.transom * m2;
                         pictureBox1.Image = Image.FromFile(@"C:\Users\hopless\Desktop\Окна\Окна\bin\Debug\image\4.jpg");
                         label5.Text = sale.ToString();
+                        product = radioButton4.Text;
                     }
                     else if (radioButton5.Checked)
                     {
-                        double sale = Price.sliding * m2;
+                        sale = Price.sliding * m2;
                         pictureBox1.Image = Image.FromFile(@"C:\Users\hopless\Desktop\Окна\Окна\bin\Debug\image\5.jpg");
                         label5.Text = sale.ToString();
+                        product = radioButton5.Text;
                     }
                     else
                     {
@@ -116,10 +123,28 @@ namespace Окна
         {
             SelectImage();
         }
-
+        //По нажатию на кнопку "Сформировать отчёт"
         private void button3_Click(object sender, EventArgs e)
         {
+          Calculation();
 
-        }
+          Random rand = new Random();
+          string randId = "";
+
+          for (int i = 0; i < 5; i++)
+              randId += rand.Next(10).ToString();
+
+          var helper = new WordHelper("report.docx");
+          var items = new Dictionary<string, string>
+          {
+              { "{Уникальный_номер}", randId },
+              { "{Дата}", DateTime.Now.ToString("dd.MM.yy") },
+              { "{Товар}", product },
+              { "{итог}", sale.ToString() }
+          };
+
+              helper.Process(items);
+          }
+        
     }
 }
